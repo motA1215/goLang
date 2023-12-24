@@ -51,3 +51,12 @@ func (c * CalculateFinalPrice) Execute(input OrderInput) (*OrderOutput, error){
 	},
 	nil;
 }
+
+func (c *CalculateFinalPrice) GetTotalRowsTable() (int, error){
+	totalRows, err := c.OrderRepository.GetTotalTransaction();
+	if err != nil{
+		return 0, err;
+	}
+
+	return totalRows, nil;
+}
